@@ -222,7 +222,7 @@ def main(argv):
             f"solution_{fileName}_{palletizationWithConstaints}_constrains.txt", "w"
         )
         f.write(
-            f"Optimal: xmax = {solver.Value(xmax)}, ymax = {solver.Value(ymax)}, area = {solver.ObjectiveValue()}, occupation percentage = {round((lb/solver.ObjectiveValue())*100),1}\n"
+            f"Optimal: xmax = {solver.Value(xmax)}, ymax = {solver.Value(ymax)}, area = {solver.ObjectiveValue()}, occupation percentage = {round((lb/solver.ObjectiveValue()*100),1)}\n"
         )
 
         solution = []
