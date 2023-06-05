@@ -16,42 +16,28 @@ class SolutionPrinter(cp_model.CpSolverSolutionCallback):
         current_time = self.WallTime()
         self.solutions.append((current_time, current_objective))
 
-    def plotTimeAndObjectiveValues(self, fileName, file):
-        x_axis = [x[0] for x in self.solutions]
-        y_axis = [x[1] for x in self.solutions]
-
-        plt.plot(x_axis, y_axis)
-        plt.xlabel("Time (ms)")
-        plt.ylabel("Objective value")
-        plt.title(f"{file}: objective value over time")
-        plt.savefig(fileName)
+    def getSolution(self):
+        return self.solutions
 
 
-def main(argv):
+def main(argv, mode, listData=None):
     inputfile = ""
-    palletizationWithConstaints = "with"
+    palletizationWithConstaints = mode
 
-    opts, args = getopt.getopt(argv, "hnf:", ["inputFile="])
+    opts, args = getopt.getopt(argv, "hf:", ["file="])
     if len(opts) == 0:
-        print(
-            "python3 palletizationWithConstraints.py -f <inputfile>\npython3 palletizationWithConstraints.py -n -f <inputfile>: to run without constraints"
-        )
-
+        print("python3 palletizationWithConstraints.py -f <inputfile>")
         sys.exit()
     for opt, arg in opts:
         if opt == "-h":
-            print(
-                "python3 palletizationWithConstraints.py -f <inputfile>\npython3 palletizationWithConstraints.py -n -f <inputfile>: to run without constraints"
-            )
+            print("python3 palletizationWithConstraints.py -f <inputfile>")
             sys.exit()
         elif opt in "-n":
             palletizationWithConstaints = "without"
         elif opt in ("-f", "--file"):
             inputfile = arg
         else:
-            print(
-                "python3 palletizationWithConstraints.py -f <inputfile>\npython3 palletizationWithConstraints.py -n -f <inputfile>: to run without constraints"
-            )
+            print("python3 palletizationWithConstraints.py -f <inputfile>")
             sys.exit()
 
     print(f">> Running palletization {palletizationWithConstaints} constraints")
@@ -75,7 +61,7 @@ def main(argv):
     # non_adjacent_pairs is a list of tuples (element1, element2)
     # elements start from 0
 
-    if palletizationWithConstaints == "with":
+    if listData == None:
         tmp = []
         newLineNumber = 0
         for line in allLines:
@@ -89,7 +75,8 @@ def main(argv):
                     adjacent_pairs = tmp.copy()
                 newLineNumber += 1
                 tmp.clear()
-        non_adjacent_pairs = tmp.copy()
+        if newLineNumber == 2 or newLineNumber == 3:
+            non_adjacent_pairs = tmp.copy()
 
         # sort adjacent pairs list based on first element of tuple
         adjacent_pairs = sorted(adjacent_pairs, key=lambda x: x[0])
@@ -99,12 +86,7 @@ def main(argv):
         non_adjacent_pairs = sorted(non_adjacent_pairs, key=lambda x: x[0])
         non_adjacent_pairs = [(min(x), max(x)) for x in non_adjacent_pairs]
     else:
-        for line in allLines:
-            if line != "\n":
-                a, b = line.split()
-                data.append((int(a), int(b)))
-            else:
-                break
+        data = listData
 
     lb = sum(d[0] * d[1] for d in data)
     max_size = math.ceil(size_factor * math.sqrt(lb))
@@ -215,9 +197,14 @@ def main(argv):
 
     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
         os.chdir("benchmarks")
+        if not os.path.isdir(f"{fileName}"):
+            os.mkdir(f"{fileName}")
+        os.chdir(f"{fileName}")
+
         if not os.path.isdir(f"solutions_{palletizationWithConstaints}_constrains"):
             os.mkdir(f"solutions_{palletizationWithConstaints}_constrains")
         os.chdir(f"solutions_{palletizationWithConstaints}_constrains")
+
         f = open(
             f"solution_{fileName}_{palletizationWithConstaints}_constrains.txt", "w"
         )
@@ -295,10 +282,8 @@ def main(argv):
         plt.savefig(f"solution_{fileName}_{palletizationWithConstaints}_constrains.png")
         plt.clf()
 
-        solution_printer.plotTimeAndObjectiveValues(
-            f"optimization_progress_{fileName}_{palletizationWithConstaints}_constrains.png",
-            fileName,
-        )
+        os.chdir("../../..")
+        return data, solution_printer.getSolution(), fileName
 
     else:
         print("No solution")
@@ -306,4 +291,22 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    data, timeAndObjectiveValues1, fileName = main(sys.argv[1:], "with")
+    data, timeAndObjectiveValues2, fileName = main(sys.argv[1:], "without", data)
+
+    os.chdir(f"benchmarks/{fileName}")
+
+    x_axis_1 = [x[0] for x in timeAndObjectiveValues1]
+    y_axis_1 = [x[1] for x in timeAndObjectiveValues1]
+
+    x_axis_2 = [x[0] for x in timeAndObjectiveValues2]
+    y_axis_2 = [x[1] for x in timeAndObjectiveValues2]
+
+    plt.plot(x_axis_1, y_axis_1, label="Palletization with constraints")
+    plt.plot(x_axis_2, y_axis_2, label="Palatalization without constraints")
+    plt.legend()
+
+    plt.xlabel("Time (ms)")
+    plt.ylabel("Objective value")
+    plt.title(f"{fileName}: objective value over time")
+    plt.savefig(f"{fileName}_optimization_progress.png")
