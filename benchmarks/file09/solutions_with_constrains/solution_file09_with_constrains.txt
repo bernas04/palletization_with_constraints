@@ -1,0 +1,8 @@
+Optimal: xmax = 11, ymax = 10, area = 110.0, occupation percentage = 100.0
+num=0, x1=0, x2=9, y1=7, y2=10
+num=1, x1=0, x2=7, y1=0, y2=2
+num=2, x1=9, x2=11, y1=2, y2=10
+num=3, x1=0, x2=9, y1=5, y2=7
+num=4, x1=0, x2=6, y1=2, y2=5
+num=5, x1=6, x2=9, y1=2, y2=5
+num=6, x1=7, x2=11, y1=0, y2=2
