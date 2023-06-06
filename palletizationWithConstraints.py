@@ -302,8 +302,8 @@ if __name__ == "__main__":
     x_axis_2 = [x[0] for x in timeAndObjectiveValues2]
     y_axis_2 = [x[1] for x in timeAndObjectiveValues2]
 
-    plt.plot(x_axis_1, y_axis_1, label="Palletization with constraints")
-    plt.plot(x_axis_2, y_axis_2, label="Palatalization without constraints")
+    plt.plot(x_axis_1, y_axis_1, "--o", label="Palletization with constraints")
+    plt.plot(x_axis_2, y_axis_2, "--o", label="Palatalization without constraints")
     plt.legend()
 
     plt.xlabel("Time in seconds")
