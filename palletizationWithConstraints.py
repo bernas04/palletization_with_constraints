@@ -40,8 +40,6 @@ def main(argv, mode, listData=None):
             print("python3 palletizationWithConstraints.py -f <inputfile>")
             sys.exit()
 
-    print(f">> Running palletization {palletizationWithConstaints} constraints")
-
     size_factor = 1.5
     # this data shows the dimensions of the elements (width, height)
     data = []
@@ -54,6 +52,9 @@ def main(argv, mode, listData=None):
     fileName = f.name.split("/")[2].replace(".txt", "")
     allLines = f.readlines()
     f.close()
+    print(
+        f">> [{fileName}]: Running palletization {palletizationWithConstaints} constraints"
+    )
 
     # parse the data from the file
     # data is a list of tuples (width, height)
