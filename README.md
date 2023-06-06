@@ -70,4 +70,4 @@ If you don't want to create your own file, you can use one of the files in the *
 
 Work done by [João Farias](https://www.linkedin.com/in/jo%C3%A3o-farias-7a7b48266/)
 </br>
-Politechnika Rzeszowska, June 2023.
+[Politechnika Rzeszowska](https://w.prz.edu.pl/), June 2023.
