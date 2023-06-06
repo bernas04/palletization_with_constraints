@@ -26,6 +26,17 @@ The **_benchmarks/data_** directory contains the files with the data for the pro
 - The second section contains the index of pairs of elements which have to be adjacent.
 - The third section contains the index pairs of elements which cannot be adjacent.
 
+Thus, the dimensions of elements will be:
+[(3, 5), (1, 4), (2, 6), (4, 7), (10, 5), (3, 6)]
+
+the adjacency elements will be:
+[(0, 1), (5, 4), (3, 2)]
+
+and the non-adjacency elements will be:
+[(1, 2)]
+
+**Note**: the adjacency and non-adjacency elements are indexed from 0, where 0 is the first element in the list and so on.
+
 It is possible to solve this problem in two ways:
 
 1. The basic one, without constraints
@@ -36,11 +47,11 @@ The solutions are stores in the **_benchmarks/_** directory, in the form of **th
 - The first one contains the position of each element in the arrangement, the area of the arrangement and the max values of **X** and **Y** coordinates.
 - The second one is an image of the arrangement.
   </br>
-  ![Image of the arrangement](benchmarks/solutions_with_constrains/solution_file02_with_constrains.png)
+  ![Image of the arrangement](benchmarks/file02/solutions_with_constrains/solution_file02_with_constrains.png)
   </br>
 - The third one is the optimization progress over time.
   </br>
-  ![Optimization progress](benchmarks/solutions_with_constrains/optimization_progress_file02_with_constrains.png)
+  ![Optimization progress](benchmarks/file02/file02_optimization_progress.png)
 
 ## How to run the program
 

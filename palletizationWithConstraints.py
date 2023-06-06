@@ -306,7 +306,7 @@ if __name__ == "__main__":
     plt.plot(x_axis_2, y_axis_2, label="Palatalization without constraints")
     plt.legend()
 
-    plt.xlabel("Time (ms)")
+    plt.xlabel("Time in seconds")
     plt.ylabel("Objective value")
     plt.title(f"{fileName}: objective value over time")
     plt.savefig(f"{fileName}_optimization_progress.png")
