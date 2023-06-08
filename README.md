@@ -53,29 +53,29 @@ To solve this problem with constrains, several constraints were added to the mod
 
 ### Adjacent shapes
 
-![Conditions to be adjacent](/img/shapes_points.jpg)
+![Conditions to be adjacent](img/shapes_points.jpg?raw=true)
 </br>
 To these shapes be adjacent, one of the following conditions must be met:
 
 - x1b == x2a
   </br>
-  ![X1B==X2A](/img/x1b__x2a.jpg)
+  ![X1B==X2A](img/x1b__x2a.jpg?raw=true)
 
 - x1a == x2b
   </br>
-  ![X1A==X2B](/img/x1a__x2b.jpg)
+  ![X1A==X2B](img/x1a__x2b.jpg?raw=true)
 
 - y2b == y1a
   </br>
-  ![Y2B==Y1A](/img/y2b__y1a.jpg)
+  ![Y2B==Y1A](img/y2b__y1a.jpg?raw=true)
 - y1b == y2a
   </br>
-  ![Y1B==Y2A](/img/y1b__y2a.jpg)
+  ![Y1B==Y2A](img/y1b__y2a.jpg?raw=true)
 
 however, this is not enought once the shapes may remain non-adjacent.
 
-![Contraexemplo](/img/contra_exemplo.jpg)</br>
-![Contraexemplo2](/img/contra_exemplo2.jpg)
+![Contraexemplo](img/contra_exemplo.jpg?raw=true)</br>
+![Contraexemplo2](img/contra_exemplo2.jpg?raw=true)
 
 In these examples the second condition is met (**x1a==x2b**), but the shapes are non adjacent, in the first image and in the second image, the fourth condition is achieved. Thus, stricter conditions need to be added to the model:
 
@@ -93,19 +93,19 @@ To these shapes be non adjacent, one of the following conditions must be met:
 
 - **x1b < x2a**
 
-  ![X1B<X2A](/img/x1b_l_x1a.jpg)
+  ![X1B<X2A](img/x1b_l_x1a.jpg?raw=true)
 
 - **x2b < x1a**
 
-  ![X2B<X1A](/img/x2b_l_x1a.jpg)
+  ![X2B<X1A](img/x2b_l_x1a.jpg?raw=true)
 
 - **y1b < y2a**
 
-  ![Y1B<Y2A](/img/y1b_l_y2a.jpg)
+  ![Y1B<Y2A](img/y1b_l_y2a.jpg?raw=true)
 
 - **y2b < y1a**
 
-  ![Y2B<Y1A](/img/y2b_l_y1a.jpg)
+  ![Y2B<Y1A](img/y2b_l_y1a.jpg?raw=true)
 
 In this case the conditions are so strict that it is not necessary to add more conditions to the model.
 
@@ -116,12 +116,12 @@ The solutions are stores in the **_benchmarks/_** directory and inside the folde
 - The first one contains the position of each element in the arrangement, the area of the arrangement, the max values of **X** and **Y** coordinates, the **area** and the **occupation rate**.
 - The second one is an image of the arrangement.
   </br>
-  ![Image of the arrangement](benchmarks/file02/solutions_with_constrains/solution_file02_with_constrains.png)
+  ![Image of the arrangement](benchmarks/file02/solutions_with_constrains/solution_file02_with_constrains.png?raw=true)
   </br>
 
 Inside the directory with the same name as the file used to run the program, there is an image that shows the optimization progress over time for the solution **with** and **without** constraints.
 </br>
-![Optimization progress](benchmarks/file02/file02_optimization_progress.png)
+![Optimization progress](benchmarks/file02/file02_optimization_progress.png?raw=true)
 
 ## How to run the program
 
@@ -135,11 +135,11 @@ If you don't want to create your own file, you can use one of the files in the *
 
 ## Results with my files
 
-<table style="margin-left: auto; margin-right: auto; ">
+<table >
 <tbody>
 <tr style=" background-color: #808080;">
 <td>&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;" colspan="2">&nbsp;<strong>With Constraints</strong></td>
+<td style=" text-align: center; vertical-align: middle;" colspan="2"><strong>With Constraints</strong></td>
 <td style=" text-align: center; vertical-align: middle;" colspan="2"><strong>Without contraints</strong></td>
 </tr>
 <tr >
@@ -151,76 +151,80 @@ If you don't want to create your own file, you can use one of the files in the *
 </tr>
 <tr >
 <td ><strong>file00.txt</strong></td>
-<td >&nbsp;532</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;97.6</td>
-<td >&nbsp;527</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;98.5</td>
+<td>532</td>
+<td style=" text-align: center; vertical-align: middle;">97.6</td>
+<td >527</td>
+<td style=" text-align: center; vertical-align: middle;">98.5</td>
 </tr>
 <tr >
 <td ><strong>file01.txt</strong></td>
-<td >&nbsp;130</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;97.7</td>
-<td >&nbsp;130</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;97.7</td>
+<td >130</td>
+<td style=" text-align: center; vertical-align: middle;">97.7</td>
+<td >130</td>
+<td style=" text-align: center; vertical-align: middle;">97.7</td>
 </tr>
 <tr >
 <td ><strong>file02.txt</strong></td>
-<td >&nbsp;864</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;96.6</td>
-<td >&nbsp;858</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;97.3</td>
+<td >864</td>
+<td style=" text-align: center; vertical-align: middle;">96.6</td>
+<td >858</td>
+<td style=" text-align: center; vertical-align: middle;">97.3</td>
 </tr>
 <tr >
 <td ><strong>file03.txt</strong></td>
-<td >&nbsp;15158</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;98</td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
+<td >15158</td>
+<td style=" text-align: center; vertical-align: middle;">98</td>
+<td >15000</td>
+<td style=" text-align: center; vertical-align: middle;">99</td>
 </tr>
 <tr >
 <td ><strong>file04.txt</strong></td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
+<td >5047</td>
+<td style=" text-align: center; vertical-align: middle;">97</td>
+<td >4998</td>
+<td style=" text-align: center; vertical-align: middle;">98</td>
 </tr>
-<tr >
-<td ><strong>file05.txt</strong></td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
+<tr>
+<td><strong>file05.txt</strong></td>
+<td>1950</td>
+<td style=" text-align: center; vertical-align: middle;">99.3</td>
+<td >1943</td>
+<td style=" text-align: center; vertical-align: middle;">99.7</td>
 </tr>
 <tr >
 <td ><strong>file06.txt</strong></td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
+<td >560</td>
+<td style=" text-align: center; vertical-align: middle;">97.1</td>
+<td >550</td>
+<td style=" text-align: center; vertical-align: middle;">98.9</td>
 </tr>
 <tr >
 <td ><strong>file07.txt</strong></td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
+<td >4416</td>
+<td style=" text-align: center; vertical-align: middle;"><b>97.9</b></td>
+<td >4450</td>
+<td style=" text-align: center; vertical-align: middle;"><b>97.2</b></td>
 </tr>
 <tr >
 <td ><strong>file08.txt</strong></td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
+<td >59118</td>
+<td style=" text-align: center; vertical-align: middle;">97.7</td>
+<td >58680</td>
+<td style=" text-align: center; vertical-align: middle;">98.5</td>
 </tr>
 <tr >
 <td ><strong>file09.txt</strong></td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
-<td >&nbsp;</td>
-<td style=" text-align: center; vertical-align: middle;">&nbsp;</td>
+<td >110</td>
+<td style=" text-align: center; vertical-align: middle;">100</td>
+<td >110</td>
+<td style=" text-align: center; vertical-align: middle;">100</td>
 </tr>
 </tbody>
 </table>
+
+**Note**
+</br>
+More results can be found inside benchmarks directory.
 
 # Author
 
