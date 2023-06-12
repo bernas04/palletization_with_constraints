@@ -55,7 +55,7 @@ It is possible to solve this problem in two ways:
 
 ### Solve the problem without constraints
 
-To solve this problem without constraints, it's only necessary to have the possible positions of each shape (horizontal and vertical) and then add that constraint to the model as in the following way:
+To solve this problem without constraints, it's only necessary to have the **two** possible positions of each shape (horizontal and vertical) and then add that constraint to the model as in the following way:
 
 ```python
 model.AddNoOverlap2D(horizontal, vertical)
@@ -322,9 +322,11 @@ If you don't want to create your own file, you can use one of the files in the *
 
 To test the developed solution, 10 files were created with different data. The results are presented in the table below.
 
-I'd like to notice that for file number 9, the solution with and without constraints found was the perfect one, once the occupation percentage is 100%. The maximum percentage difference between the solution with and without constraints is **1.8%** and it takes place to [file06.txt](https://github.com/bernas04/palletization_with_constraints/blob/main/benchmarks/data/file06.txt), thus it's possible to conclude that the implementation of this algorithm produces good results.
+I'd like to notice that for [file09.txt](https://github.com/bernas04/palletization_with_constraints/blob/main/benchmarks/data/file06.txt), the solution with and without constraints found was the perfect one, once the occupation percentage is 100%.
 
-Another interesting thing is regarding the results of [file07.txt](https://github.com/bernas04/palletization_with_constraints/blob/main/benchmarks/data/file07.txt), as you can see in the table the solution with constraints is better than the solution without constraints, what was unexpected once the outcomes of all other files are better in the solution without constraints than in the solution with constraints.
+The maximum percentage difference between the solution with and without constraints is **1.8%** and it takes place to [file06.txt](https://github.com/bernas04/palletization_with_constraints/blob/main/benchmarks/data/file06.txt), thus it's possible to conclude that the implementation of this algorithm produces good results.
+
+To almost all files tested, the solution without constraints is better, regarding the occupied space, than the solution with constraints, but regarding [file07.txt](https://github.com/bernas04/palletization_with_constraints/blob/main/benchmarks/data/file07.txt), as you can see in the table the solution with constraints is better than the solution without constraints, what was unexpected once the outcomes of all other files are better in the solution without constraints than in the solution with constraints.
 ![File07](https://github.com/bernas04/palletization_with_constraints/blob/main/benchmarks/file07/file07_optimization_progress.png?raw=True)
 
 As you can see the best solution with constraints was found near **2500 seconds**, approximately **42 minutes**, while the solution without constraints was found near **1000 seconds** (+/- 17 minutes). Once the solver time is limited to **one** hour, it suggests that it most likely did not have enough time to develop a better solution than the constraint solver.
@@ -338,6 +340,10 @@ Although it seems that the unconstrained solution is better, in reality it is no
 **Note**
 </br>
 More results can be found inside benchmarks directory.
+
+## Conclusions
+
+After discussing the results, it's possible to state that the solution without constraints produces better outcomes than the results with constraints, furthermore, the time required to solve the problem without constraints is, in general, less than solving the same problem with constraints.
 
 # Author
 
